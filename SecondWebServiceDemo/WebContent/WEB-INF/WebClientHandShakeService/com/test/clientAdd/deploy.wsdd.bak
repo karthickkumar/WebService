@@ -1,0 +1,30 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from WebClientHandShakeService WSDL service -->
+
+  <service name="WebClientHandShake" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://clientAdd.test.com"/>
+      <parameter name="wsdlServiceElement" value="WebClientHandShakeService"/>
+      <parameter name="schemaQualified" value="http://clientAdd.test.com"/>
+      <parameter name="wsdlServicePort" value="WebClientHandShake"/>
+      <parameter name="className" value="com.test.clientAdd.WebClientHandShakeSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="WebClientHandShake"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="callMethod" qname="operNS:callMethod" xmlns:operNS="http://clientAdd.test.com" soapAction="" >
+      </operation>
+      <operation name="webMethod" qname="operNS:webMethod" xmlns:operNS="http://clientAdd.test.com" returnQName="retNS:webMethodReturn" xmlns:retNS="http://clientAdd.test.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <parameter name="allowedMethods" value="callMethod webMethod"/>
+
+  </service>
+</deployment>

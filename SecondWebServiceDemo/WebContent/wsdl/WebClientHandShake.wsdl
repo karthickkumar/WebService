@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://clientAdd.test.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://clientAdd.test.com" xmlns:intf="http://clientAdd.test.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://clientAdd.test.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="callMethod">
+    <complexType/>
+   </element>
+   <element name="callMethodResponse">
+    <complexType/>
+   </element>
+   <element name="webMethod">
+    <complexType/>
+   </element>
+   <element name="webMethodResponse">
+    <complexType>
+     <sequence>
+      <element name="webMethodReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="callMethodResponse">
+
+      <wsdl:part element="impl:callMethodResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="callMethodRequest">
+
+      <wsdl:part element="impl:callMethod" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="webMethodRequest">
+
+      <wsdl:part element="impl:webMethod" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="webMethodResponse">
+
+      <wsdl:part element="impl:webMethodResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="WebClientHandShake">
+
+      <wsdl:operation name="callMethod">
+
+         <wsdl:input message="impl:callMethodRequest" name="callMethodRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:callMethodResponse" name="callMethodResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="webMethod">
+
+         <wsdl:input message="impl:webMethodRequest" name="webMethodRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:webMethodResponse" name="webMethodResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="WebClientHandShakeSoapBinding" type="impl:WebClientHandShake">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="callMethod">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="callMethodRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="callMethodResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="webMethod">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="webMethodRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="webMethodResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="WebClientHandShakeService">
+
+      <wsdl:port binding="impl:WebClientHandShakeSoapBinding" name="WebClientHandShake">
+
+         <wsdlsoap:address location="http://localhost:8080/SecondWebServiceDemo/services/WebClientHandShake"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
