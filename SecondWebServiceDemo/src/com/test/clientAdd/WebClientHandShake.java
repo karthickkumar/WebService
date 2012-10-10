@@ -15,10 +15,10 @@ import javax.xml.ws.handler.MessageContext;
  */
 public class WebClientHandShake {
 
-	@Resource  
+    @Resource  
     WebServiceContext wsc; 
 	
-	@WebMethod  
+    @WebMethod  
     public String webMethod() {  
         MessageContext mc = wsc.getMessageContext();  
         HttpServletRequest req = (HttpServletRequest)  
@@ -30,9 +30,9 @@ public class WebClientHandShake {
                req.getRemoteAddr() + ").";  
     }  
 	
-	public void callMethod()
-	{
-		System.out.println("Ip Address is:"+webMethod());
-	}
+    public void callMethod()
+    {
+	System.out.println("Ip Address is:"+webMethod());
+    }
 
 }
